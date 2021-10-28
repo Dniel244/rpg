@@ -24,6 +24,10 @@ ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
 Hero hero;
 
+//Images
+PImage map;
+color northRoom, eastRoom, southRoom, westRoom;
+
 
 
 //MOVEMENT VARIABLES
@@ -34,6 +38,7 @@ void setup() {
   mode = INTRO;
   myGif = new AnimatedGif(55, "frame_", "_delay-0.06s.gif", width/2, height/2, width, height);
   start = new Button(width/2, height/2+200, 200, 100, #FF0825, #13FF08);
+  map = loadImage("map.png");
 
   //CREATE OBJECTS
   myObjects = new ArrayList<GameObject>(1000);

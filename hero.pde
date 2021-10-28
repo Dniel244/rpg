@@ -1,10 +1,14 @@
 class Hero extends GameObject {
-  float speed = 5;
+  float speed;
+  int roomX, roomY;
   Hero() {
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
     size = 50;
-    lives = 3;
+    hp = 1;
+    speed = 5;
+    roomX = 1;
+    roomY = 1;
   }
 
   void show() {

@@ -1,13 +1,18 @@
 void game() {
-  background(lightGrey);
+  rectMode(CENTER);
+  background(black);
 
   drawRoom();
   drawGameObjects();
+  drawLightLayer();
   
   image(map, 75, 90, 100, 100);
 }
 
 void drawRoom() {
+  stroke(lightGrey);
+  fill(lightGrey);
+  rect(width/2, height/2, width, height);
   stroke(black);
   line(0, 0, width, height);
 
@@ -48,5 +53,15 @@ void drawGameObjects() {
     } else {
       i++;
     }
+  }
+}
+
+void drawLightLayer() {
+  int i = 0;
+  while (i < darkness.size()) {
+    DarknessCell dark = darkness.get(i);
+    dark.show();     
+    i++;
+    
   }
 }

@@ -22,6 +22,7 @@ color brown = #6A400A;
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
+ArrayList<MiniMap> miniMap;
 Hero hero;
 
 //Images
@@ -58,7 +59,10 @@ void setup() {
       y = y + size;
     }
   }
-}
+  
+  
+  }
+
 
 void draw() {
   if (mode == INTRO) {

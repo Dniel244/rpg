@@ -5,8 +5,8 @@ void game() {
   drawRoom();
   drawGameObjects();
   drawLightLayer();
+  drawMiniMap();
   
-  image(map, 75, 90, 100, 100);
 }
 
 void drawRoom() {
@@ -63,5 +63,21 @@ void drawLightLayer() {
     dark.show();     
     i++;
     
+  }
+}
+
+void drawMiniMap() {
+   miniMap = new ArrayList<MiniMap>(1000);
+  int sizeM = 50;
+  int xM = 0, yM = 0;
+  while (yM < map.height) {
+  color c = map.get(xM, yM);
+  fill(c);
+  square(xM*5,yM*5,sizeM);
+    xM++;
+    if (xM >= map.width) {
+      xM = 0;
+      yM++;
+    }
   }
 }

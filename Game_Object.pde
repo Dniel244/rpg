@@ -27,8 +27,7 @@ class GameObject {
       loc.y = 75;
     }
   }
-  
+
   void show() {
-    
   }
 }

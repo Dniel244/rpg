@@ -6,7 +6,6 @@ void game() {
   drawGameObjects();
   drawLightLayer();
   drawMiniMap();
-  
 }
 
 void drawRoom() {
@@ -62,22 +61,29 @@ void drawLightLayer() {
     DarknessCell dark = darkness.get(i);
     dark.show();     
     i++;
-    
   }
 }
 
 void drawMiniMap() {
-   miniMap = new ArrayList<MiniMap>(1000);
-  int sizeM = 50;
-  int xM = 0, yM = 0;
+  miniMap = new ArrayList<MiniMap>(1000);
+  int sizeM = 15;
+  int xM = 0;
+  int yM = 0;
+  color c;
   while (yM < map.height) {
-  color c = map.get(xM, yM);
-  fill(c);
-  square(xM*5,yM*5,sizeM);
+    if (roomx == xM && roomy == yM) {
+      c = blue;
+    } else {
+      c = map.get(xM, yM);
+    }
+    fill(c);
+    square(10*xM + 25, 10*yM + 25, sizeM);
     xM++;
+    ;
     if (xM >= map.width) {
       xM = 0;
       yM++;
+      ;
     }
   }
 }

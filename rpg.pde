@@ -17,13 +17,17 @@ color lightGrey = #898383;
 color darkGrey = #645F5F;
 color black = 0;
 color purple = #8114C6;
-color brown = #6A400A;
+color blue = #0E13CB;
+color lightBlue = #0FFFFD;
+color red = #FF0825;
+color green = #13FF08;
 
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
 ArrayList<MiniMap> miniMap;
 Hero hero;
+int roomx, roomy;
 
 //Images
 PImage map;
@@ -38,7 +42,7 @@ void setup() {
   size(800, 800);
   mode = INTRO;
   myGif = new AnimatedGif(55, "frame_", "_delay-0.06s.gif", width/2, height/2, width, height);
-  start = new Button(width/2, height/2+200, 200, 100, #FF0825, #13FF08);
+  start = new Button(width/2, height/2+200, 200, 100, red, green);
   map = loadImage("map.png");
 
   //CREATE OBJECTS
@@ -59,9 +63,7 @@ void setup() {
       y = y + size;
     }
   }
-  
-  
-  }
+}
 
 
 void draw() {

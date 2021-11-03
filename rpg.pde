@@ -20,7 +20,7 @@ color purple = #8114C6;
 color blue = #0E13CB;
 color lightBlue = #0FFFFD;
 color red = #FF0825;
-color green = #13FF08;
+color green = #12FF37;
 
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;

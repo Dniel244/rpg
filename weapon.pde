@@ -19,11 +19,13 @@ class Weapon {
     shotTimer++;
   }
 
+
   void shoot() {
     if (shotTimer >= threshold) {
       PVector aimVector = new PVector(mouseX-hero.loc.x, mouseY-hero.loc.y);
       aimVector.setMag(bulletSpeed);
-     // myObjects.add(new Bullet(aimVector, lightBlue, 10));
+      myObjects.add(new Bullet(aimVector, red, 10));
+      shotTimer = 0;
     }
   }
 }

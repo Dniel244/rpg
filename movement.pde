@@ -4,6 +4,7 @@ void keyPressed() {
   if (key == 'a') left = true;
   if (key == 'd') right = true;
   if (keyCode == ' ') spacekey = true;
+  
 }
 
 void keyReleased() {

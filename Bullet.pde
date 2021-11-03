@@ -5,15 +5,14 @@ class Bullet extends GameObject {
   int c;
   int s;
   //bullet construcor
-  Bullet(int l_, int c_, int s_) {
+  Bullet(PVector l_, int c_, int s_) {
     timer = 60;
     hp = 1;
-    loc = new PVector(l, l);
-    vel = new PVector(5, 5);
+    loc = hero.loc.copy();
+    vel = l_;
     size = 10;
     //how far bullets travel
     vel.setMag(10);
-    l = l_;
     c = c_;
     s = s_;
   }
@@ -32,6 +31,22 @@ class Bullet extends GameObject {
     timer--;
     if (timer == 0) {
       hp = 0;
+    }
+
+    if (loc.x >= 725) {
+      hp--;
+    }
+
+    if (loc.x <= 75) {
+      hp--;
+    }
+
+    if (loc.y >= 725) {
+      hp--;
+    }
+
+    if (loc.y <= 75) {
+      hp--;
     }
   }
 }

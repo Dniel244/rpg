@@ -12,7 +12,7 @@ class Hero extends GameObject {
     roomY = 1;
     roomx = roomX;
     roomy = roomY;
-    weapon = new Weapon();
+    weapon = new Weapon(5, 5);
   }
 
   void show() {
@@ -47,6 +47,11 @@ class Hero extends GameObject {
     } else if (westRoom != #FFFFFF && loc.y >= height/2-50 && loc.y <= height/2+50 && loc.x == 75) {
       roomX--;
       loc = new PVector(725, height/2);
+    }
+
+    weapon.update();
+    if (spacekey) {
+      weapon.shoot();
     }
   }
 }

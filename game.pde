@@ -45,15 +45,18 @@ void drawGameObjects() {
   int i = 0;
   while (i < myObjects.size()) {
     GameObject obj = myObjects.get(i);
-    obj.show();
-    obj.act();
-    if (obj.hp <= 0) {
-      myObjects.remove(i);
-    } else {
-      i++;
+    if (obj.roomX == hero.roomX && obj.roomY == hero.roomY) {
+      obj.show();
+      obj.act();
+      if (obj.hp <= 0) {
+        myObjects.remove(i);
+        i--;
+      }
     }
+    i++;
   }
 }
+
 
 void drawLightLayer() {
   int i = 0;

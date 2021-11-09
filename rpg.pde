@@ -1,11 +1,18 @@
+/*
+Daniel Altshuler
+RPG
+Nov 8, 2021
+*/
+
+//keyboard input
 boolean mouseReleased, wasPressed;
 
-
+//class variables
 AnimatedGif myGif;
 Button start;
 
 
-
+//mode framework
 int mode;
 final int INTRO = 1;
 final int GAME = 2;
@@ -26,6 +33,7 @@ color green = #12FF37;
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
 ArrayList<MiniMap> miniMap;
+
 Hero hero;
 int roomx, roomy;
 
@@ -49,6 +57,7 @@ void setup() {
   myObjects = new ArrayList<GameObject>(1000);
   hero = new Hero();
   myObjects.add(hero);
+  myObjects.add(new Enemy());
 
   //CREATE DARKNESS
 

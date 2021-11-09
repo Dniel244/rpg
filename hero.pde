@@ -1,6 +1,5 @@
 class Hero extends GameObject {
   float speed;
-  int roomX, roomY;
   Weapon weapon;
   Hero() {
     loc = new PVector(width/2, height/2);
@@ -12,7 +11,7 @@ class Hero extends GameObject {
     roomY = 1;
     roomx = roomX;
     roomy = roomY;
-    weapon = new Weapon(5, 5);
+    weapon = new AutoPistol();
   }
 
   void show() {

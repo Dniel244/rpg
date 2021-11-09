@@ -2,6 +2,7 @@ class GameObject {
   PVector loc, vel; 
   int size;
   int hp;
+  int roomX, roomY;
 
   GameObject() {
   }

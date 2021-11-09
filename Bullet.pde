@@ -1,27 +1,24 @@
 class Bullet extends GameObject {
 
+  color bulletColor;
   int timer;
-  int l;
-  int c;
-  int s;
   //bullet construcor
-  Bullet(PVector l_, int c_, int s_) {
+  Bullet(PVector vel_, color c, int s) {
     timer = 60;
-    hp = 1;
     loc = hero.loc.copy();
-    vel = l_;
-    size = 10;
-    //how far bullets travel
-    vel.setMag(10);
-    c = c_;
-    s = s_;
+    vel = vel_;
+    size = s;
+    bulletColor = c;
+    size = s;
+    roomX = hero.roomX;
+    roomY = hero.roomY;
   }
 
   //how bullets appear
   void show() {
-    stroke(c);
-    fill(c);
-    ellipse(loc.x, loc.y, s, s);
+    noStroke();
+    fill(bulletColor);
+    circle(loc.x, loc.y, size);
   }
 
 

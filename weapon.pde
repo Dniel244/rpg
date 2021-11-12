@@ -3,6 +3,7 @@ class Weapon {
   int threshold;
   int bulletSpeed;   
 
+
   Weapon() {
     shotTimer = 0;
     threshold = 30;

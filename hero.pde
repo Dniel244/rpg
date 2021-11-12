@@ -11,7 +11,7 @@ class Hero extends GameObject {
     roomY = 1;
     roomx = roomX;
     roomy = roomY;
-    weapon = new AutoPistol();
+    weapon = new ShotGun();
   }
 
   void show() {

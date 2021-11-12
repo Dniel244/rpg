@@ -1,15 +1,14 @@
 class Bullet extends GameObject {
-
   color bulletColor;
   int timer;
   //bullet construcor
   Bullet(PVector vel_, color c, int s) {
+    hp = 1;
     timer = 60;
     loc = hero.loc.copy();
     vel = vel_;
     size = s;
     bulletColor = c;
-    size = s;
     roomX = hero.roomX;
     roomY = hero.roomY;
   }

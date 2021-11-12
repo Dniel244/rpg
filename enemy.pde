@@ -14,7 +14,7 @@ class Enemy extends GameObject {
     fill(green);
     circle(loc.x, loc.y, 50);
     fill(black);
-    textAlign(CENTER);
+    textAlign(CENTER, CENTER);
     textSize(20);
     text(hp, loc.x, loc.y);
   }

@@ -1,11 +1,18 @@
 void game() {
+
+
   rectMode(CENTER);
   background(black);
-
   drawRoom();
   drawGameObjects();
   drawLightLayer();
   drawMiniMap();
+
+  //health
+  textAlign(CENTER, CENTER);
+  fill(red);
+  textSize(50);
+  text(hero.hp, width-width/4, 100);
 }
 
 void drawRoom() {
@@ -26,6 +33,8 @@ void drawRoom() {
   westRoom = map.get(hero.roomX-1, hero.roomY);
   fill(black);
 
+
+  fill(black);
 
   if (northRoom != #FFFFFF) {
     quad(width/2 - 50, 5, width/2 - 25, 50, width/2 + 25, 50, width/2 + 50, 5);

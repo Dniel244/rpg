@@ -1,8 +1,8 @@
 /*
 Daniel Altshuler
-RPG
-Nov 8, 2021
-*/
+ RPG
+ Nov 8, 2021
+ */
 
 //keyboard input
 boolean mouseReleased, wasPressed;
@@ -58,6 +58,8 @@ void setup() {
   hero = new Hero();
   myObjects.add(hero);
   myObjects.add(new Enemy());
+  myObjects.add(new Follower(1, 2));
+  myObjects.add(new Follower(1, 3));
 
   //CREATE DARKNESS
 

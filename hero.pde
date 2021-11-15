@@ -1,26 +1,59 @@
 class Hero extends GameObject {
   float speed;
+  int itimer, ithreshold;
+  int ht;
   Weapon weapon;
   Hero() {
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
     size = 50;
-    hp = 1;
+    hp = 3;
+    ht = 100;
     speed = 5;
     roomX = 1;
     roomY = 1;
     roomx = roomX;
     roomy = roomY;
+    itimer = 0;
+    ithreshold = 180;
     weapon = new ShotGun();
   }
 
   void show() {
-    fill(blue);
+    fill(blue, ht);
     circle(loc.x, loc.y, size);
   }
 
   void act() {
     super.act();
+    
+    itimer++;
+    
+    if (itimer >= ithreshold) {
+
+      ht = 200;
+
+      //ship collisions
+      int i = 0;
+      while (i < myObjects.size()) {
+        GameObject myObj = myObjects.get(i);
+
+
+        if (myObj instanceof Enemy) {
+          if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
+            hp--;
+            itimer = 0;
+            ht = 100;
+          }
+        }
+        i++;
+      }
+    }
+    
+    
+    
+    
+    
     roomx = roomX;
     roomy = roomY;
     if (up) vel.y = -speed;

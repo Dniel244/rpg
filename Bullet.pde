@@ -1,10 +1,10 @@
 class Bullet extends GameObject {
   color bulletColor;
-  int timer;
+  int damage;
   //bullet construcor
   Bullet(PVector vel_, color c, int s) {
     hp = 1;
-    timer = 60;
+    damage = 5;
     loc = hero.loc.copy();
     vel = vel_;
     size = s;
@@ -24,10 +24,7 @@ class Bullet extends GameObject {
   void act() {
     super.act();
     //deleting bulelts if they dont find their target
-    timer--;
-    if (timer == 0) {
-      hp = 0;
-    }
+    
 
     if (loc.x >= 725) {
       hp--;

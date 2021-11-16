@@ -41,5 +41,12 @@ class Bullet extends GameObject {
     if (loc.y <= 75) {
       hp--;
     }
+    
+    
+     if (roomX != hero.roomX || roomY != hero.roomY) {
+       hp--;
+     }
+    
+    
   }
 }

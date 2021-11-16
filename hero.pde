@@ -26,9 +26,9 @@ class Hero extends GameObject {
 
   void act() {
     super.act();
-    
+
     itimer++;
-    
+
     if (itimer >= ithreshold) {
 
       ht = 200;
@@ -38,22 +38,23 @@ class Hero extends GameObject {
       while (i < myObjects.size()) {
         GameObject myObj = myObjects.get(i);
 
-
-        if (myObj instanceof Enemy) {
-          if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
-            hp--;
-            itimer = 0;
-            ht = 100;
+        if (myObj.roomX == hero.roomX && myObj.roomY == hero.roomY) {
+          if (myObj instanceof Enemy) {
+            if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
+              hp--;
+              itimer = 0;
+              ht = 100;
+            }
           }
         }
         i++;
       }
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     roomx = roomX;
     roomy = roomY;
     if (up) vel.y = -speed;

@@ -30,6 +30,7 @@ color lightBlue = #0FFFFD;
 color red = #FF0825;
 color green = #12FF37;
 color brown = #907826;
+color yellow = #E9FA0A;
 
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;
@@ -60,7 +61,9 @@ void setup() {
   hero = new Hero();
   myObjects.add(hero);
   myObjects.add(new Follower(1, 2));
-  myObjects.add(new Follower(1, 3));
+  myObjects.add(new Lurker(1, 3));
+  myObjects.add(new Spawner(2, 3));
+  myObjects.add(new Turret(3, 3));
 
   //CREATE DARKNESS
 

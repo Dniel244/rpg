@@ -7,6 +7,7 @@ class Enemy extends GameObject {
     roomX = 1;
     roomY = 1;
     size = 50;
+
   }
 
   Enemy(int _hp, int s, int x, int y) {

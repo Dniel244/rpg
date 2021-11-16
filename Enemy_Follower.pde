@@ -20,7 +20,7 @@ class Follower extends Enemy {
 
     
 
-    if (dist(hero.loc.x, hero.loc.y, loc.x, loc.y) < width/4) {
+    if (dist(hero.loc.x, hero.loc.y, loc.x, loc.y) < width/2-100) {
       vel = new PVector(hero.loc.x - loc.x, hero.loc.y - loc.y);
     } else {
       vel = new PVector(width/2 - loc.x, height/2 - loc.y);

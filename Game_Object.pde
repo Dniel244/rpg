@@ -10,6 +10,8 @@ class GameObject {
   void act() {
     //move
     loc.add(vel);
+    
+    
 
     //bounce of walls
     if (loc.x >= 725) {

@@ -1,6 +1,8 @@
 void game() {
 
-
+if (hero.hp <= 0) {
+  mode = GAMEOVER;
+}
   rectMode(CENTER);
   background(black);
   drawRoom();

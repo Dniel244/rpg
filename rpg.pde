@@ -22,12 +22,14 @@ final int PAUSE = 4;
 //COLOR PALLET
 color lightGrey = #898383;
 color darkGrey = #645F5F;
+color darkdarkGrey = #2E2D2A;
 color black = 0;
 color purple = #8114C6;
 color blue = #0E13CB;
 color lightBlue = #0FFFFD;
 color red = #FF0825;
 color green = #12FF37;
+color brown = #907826;
 
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;
@@ -57,7 +59,6 @@ void setup() {
   myObjects = new ArrayList<GameObject>(1000);
   hero = new Hero();
   myObjects.add(hero);
-  myObjects.add(new Enemy());
   myObjects.add(new Follower(1, 2));
   myObjects.add(new Follower(1, 3));
 

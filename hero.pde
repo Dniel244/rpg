@@ -7,7 +7,7 @@ class Hero extends GameObject {
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
     size = 50;
-    hp = 3;
+    hp = 100;
     ht = 100;
     speed = 5;
     roomX = 1;
@@ -16,12 +16,16 @@ class Hero extends GameObject {
     roomy = roomY;
     itimer = 0;
     ithreshold = 180;
-    weapon = new ShotGun();
+    weapon = new AutoPistol();
   }
 
   void show() {
     fill(blue, ht);
     circle(loc.x, loc.y, size);
+    fill(black);
+    textAlign(CENTER, CENTER);
+    textSize(20);
+    text(hp, loc.x, loc.y);
   }
 
   void act() {
@@ -39,9 +43,9 @@ class Hero extends GameObject {
         GameObject myObj = myObjects.get(i);
 
         if (myObj.roomX == hero.roomX && myObj.roomY == hero.roomY) {
-          if (myObj instanceof Enemy) {
+          if (myObj instanceof Enemy || myObj instanceof TBullet) {
             if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
-              hp--;
+              hp= hp - 5;
               itimer = 0;
               ht = 100;
             }

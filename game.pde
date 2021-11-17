@@ -10,11 +10,7 @@ if (hero.hp <= 0) {
   drawLightLayer();
   drawMiniMap();
 
-  //health
-  textAlign(CENTER, CENTER);
-  fill(red);
-  textSize(50);
-  text(hero.hp, width-width/4, 100);
+
 }
 
 void drawRoom() {

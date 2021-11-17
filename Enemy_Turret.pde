@@ -1,7 +1,11 @@
 class Turret extends Enemy {
-  int tbTimer = 100;
+  int tbTimer;
+  int tbThreshold;
+  int tBulletSpeed = 5;
   Turret(int x, int y) {
     super(50, 100, x, y);
+    tbTimer = 0;
+    tbThreshold = 25;
   }
 
   void show() {
@@ -18,20 +22,16 @@ class Turret extends Enemy {
   void act() {
     tbTimer++;
     super.act(); 
-    PVector haimvector = new PVector(hero.loc.x-loc.x, hero.loc.y-loc.y);
-    println(tbTimer);
+    PVector hAimvector = new PVector(hero.loc.x-loc.x, hero.loc.y-loc.y);
     vel = new PVector(0, 0);
-    int i = 0;
-    while (i < myObjects.size()) {
-      GameObject myObj = myObjects.get(i);
 
-      if (myObj.roomX == hero.roomX && myObj.roomY == hero.roomY) {
-        if (tbTimer >= 100) {
-          myObjects.add(new TBullet(haimvector, blue, 10));
-          tbTimer = 0;
-        }
+    if (roomX == hero.roomX && roomY == hero.roomY) {
+
+      if (tbTimer >= tbThreshold) {
+        myObjects.add(new TBullet(hAimvector, purple, 10, loc));
+        hAimvector.setMag(tBulletSpeed);
+        tbTimer = 0;
       }
-      i++;
     }
   }
 }

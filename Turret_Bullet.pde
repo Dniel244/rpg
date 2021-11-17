@@ -1,34 +1,22 @@
 class TBullet extends GameObject {
-  color bulletColor;
   int damage;
+  int TBulletColor;
   //bullet construcor
-  TBullet(PVector vel_, color c, int s) {
-
-    int i = 0;
-    while (i < myObjects.size()) {
-      GameObject myObj = myObjects.get(i);
-      if (myObj instanceof Turret) {
-        hp = 1;
-        damage = 5;
-        loc = myObj.loc.copy();
-        vel = vel_;
-        size = s;
-        bulletColor = c;
-
-
-
-
-
-        roomX = myObj.roomX;
-        roomY = myObj.roomY;
-      }
-    }
+  TBullet(PVector vel_, color c, int s, PVector location) {
+    loc = location.copy();
+    hp = 1;
+    damage = 5;
+    vel = vel_;
+    size = s;
+    TBulletColor = c;
+    roomX = hero.roomX;
+    roomY = hero.roomY;
   }
 
   //how bullets appear
   void show() {
     noStroke();
-    fill(bulletColor);
+    fill(TBulletColor);
     circle(loc.x, loc.y, size);
   }
 

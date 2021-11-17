@@ -32,6 +32,12 @@ color green = #12FF37;
 color brown = #907826;
 color yellow = #E9FA0A;
 
+/*MAP HEXCODES
+ light blue = #0FFFFD
+ purple = #8114C6
+ 
+ 
+ */
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
@@ -60,22 +66,37 @@ void setup() {
   myObjects = new ArrayList<GameObject>(1000);
   hero = new Hero();
   myObjects.add(hero);
-  myObjects.add(new Follower(1, 2));
-  myObjects.add(new Lurker(1, 3));
-  myObjects.add(new Spawner(2, 3));
-  myObjects.add(new Turret(3, 3));
+
 
   //CREATE DARKNESS
 
   darkness = new ArrayList<DarknessCell>(1000);
   float size = 5;
-  float x = 0, y = 0;
+  int x = 0, y = 0;
   while (x <= width-size && y <= height-size) {
     darkness.add(new DarknessCell(x, y, size));
-    x = x+size;
+    x += size;
     if (x > width-size) {
       x = 0;
-      y = y + size;
+      y += size;
+    }
+  }
+
+  //loading the enemies from the map
+  x = 0;
+  y = 0;
+  while (y < map.height) {
+    color roomColor = map.get(x,y);
+    if (roomColor == lightBlue) {
+      myObjects.add(new Follower(x,y));
+    }
+    if (roomColor == purple) {
+      myObjects.add(new Spawner(x,y));
+    }
+    x++;
+    if (x == map.width) {
+      x = 0;
+      y++;
     }
   }
 }

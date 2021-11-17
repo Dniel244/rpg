@@ -1,5 +1,6 @@
 class Spawner extends Enemy {
-  int spawnTimer = 500;
+  int spawnTimer = 150;
+  int spawnThreshold = 150;
   Spawner(int x, int y) {
     super(50, 100, x, y);
   }
@@ -17,15 +18,14 @@ class Spawner extends Enemy {
 
   void act() {
     spawnTimer++;
-    super.act(); 
-    println(spawnTimer);
+    super.act();
     vel = new PVector(0, 0);
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
 
       if (myObj.roomX == hero.roomX && myObj.roomY == hero.roomY) {
-        if (spawnTimer >= 500) {
+        if (spawnTimer >= spawnThreshold) {
           myObjects.add(new Follower(myObj.roomX, myObj.roomY));
           spawnTimer = 0;
         }

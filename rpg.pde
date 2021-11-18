@@ -85,13 +85,24 @@ void setup() {
   //loading the enemies from the map
   x = 0;
   y = 0;
+  int j, k;
   while (y < map.height) {
     color roomColor = map.get(x,y);
     if (roomColor == lightBlue) {
+      j = int(random(0, 2));
+      if (j == 0) {
       myObjects.add(new Follower(x,y));
+      } else if (j == 1) {
+        myObjects.add(new Lurker(x,y));
+      }
     }
     if (roomColor == purple) {
+       k = int(random(0, 2));
+      if (k == 0) {
       myObjects.add(new Spawner(x,y));
+      } else if (k == 1) {
+        myObjects.add(new Turret(x,y));
+      }
     }
     x++;
     if (x == map.width) {

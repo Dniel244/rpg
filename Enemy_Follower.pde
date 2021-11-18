@@ -1,6 +1,6 @@
 class Follower extends Enemy {
   Follower(int x, int y) {
-    super(100, 50, x, y);
+    super(FOLLOWER_HEALTH, FOLLOWER_SIZE, x, y);
   }
 
   void show() {

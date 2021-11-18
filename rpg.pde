@@ -3,6 +3,35 @@ Daniel Altshuler
  RPG
  Nov 8, 2021
  */
+//enemy: settings
+int FOLLOWER_HEALTH = 100;
+int FOLLOWER_SIZE = 50;
+
+int LURKER_HEALTH = 100;
+int LURKER_SIZE = 50;
+
+int SPAWNER_HEALTH = 50;
+int SPAWNER_SIZE = 100;
+
+int TURRET_HEALTH = 150;
+int TURRET_SIZE = 100;
+
+//weapon: settings
+int SNIPER_RIFLE_THRESHOLD = 100;
+int SNIPER_RIFLE_BULLETSPEED = 20;
+
+int AUTO_PISTOL_THRESHOLD = 10;
+int AUTO_PISTOL_BULLETSPEED = 5;
+
+int SHOTGUN_THRESHOLD = 50;
+int SHOTGUN_BULLETSPEED = 5;
+
+
+
+
+
+
+
 
 //keyboard input
 boolean mouseReleased, wasPressed;
@@ -32,12 +61,11 @@ color green = #12FF37;
 color brown = #907826;
 color yellow = #E9FA0A;
 
-/*MAP HEXCODES
- light blue = #0FFFFD
- purple = #8114C6
- 
- 
- */
+//MINI MAP
+color mapBlue = #117b7a;
+color mapPurple = #3f0a61;
+
+
 //GAME OBJECTS
 ArrayList<GameObject> myObjects;
 ArrayList<DarknessCell> darkness;
@@ -88,7 +116,7 @@ void setup() {
   int j, k;
   while (y < map.height) {
     color roomColor = map.get(x,y);
-    if (roomColor == lightBlue) {
+    if (roomColor == mapBlue) {
       j = int(random(0, 2));
       if (j == 0) {
       myObjects.add(new Follower(x,y));
@@ -96,7 +124,7 @@ void setup() {
         myObjects.add(new Lurker(x,y));
       }
     }
-    if (roomColor == purple) {
+    if (roomColor == mapPurple) {
        k = int(random(0, 2));
       if (k == 0) {
       myObjects.add(new Spawner(x,y));

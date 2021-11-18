@@ -2,7 +2,7 @@ class Spawner extends Enemy {
   int spawnTimer = 150;
   int spawnThreshold = 150;
   Spawner(int x, int y) {
-    super(50, 100, x, y);
+    super(SPAWNER_HEALTH, SPAWNER_SIZE, x, y);
   }
 
   void show() {

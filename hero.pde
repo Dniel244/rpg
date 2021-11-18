@@ -16,7 +16,7 @@ class Hero extends GameObject {
     roomy = roomY;
     itimer = 0;
     ithreshold = 180;
-    weapon = new AutoPistol();
+    weapon = new ShotGun();
   }
 
   void show() {

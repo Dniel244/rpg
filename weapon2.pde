@@ -1,20 +1,20 @@
 class SniperRifle extends Weapon {
 
   SniperRifle() {
-    super(100, 20);
+    super(SNIPER_RIFLE_THRESHOLD, SNIPER_RIFLE_BULLETSPEED);
   }
 }
 
 class AutoPistol extends Weapon {
 
   AutoPistol() {
-    super(10, 5);
+    super(AUTO_PISTOL_THRESHOLD, AUTO_PISTOL_BULLETSPEED);
   }
 }
 
 class ShotGun extends Weapon {
   ShotGun() {
-    super(100, 5);
+    super(SHOTGUN_THRESHOLD, SHOTGUN_BULLETSPEED);
   }
 
   void shoot() {

@@ -10,7 +10,7 @@ class Follower extends Enemy {
     circle(loc.x, loc.y, size);
     fill(black);
     textAlign(CENTER, CENTER);
-    textSize(20);
+    textSize(35);
     text(hp, loc.x, loc.y);
   }
 

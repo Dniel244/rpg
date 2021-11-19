@@ -15,7 +15,7 @@ class Hero extends GameObject {
     roomx = roomX;
     roomy = roomY;
     itimer = 0;
-    ithreshold = 180;
+    ithreshold = 50;
     weapon = new ShotGun();
   }
 
@@ -24,7 +24,7 @@ class Hero extends GameObject {
     circle(loc.x, loc.y, size);
     fill(black);
     textAlign(CENTER, CENTER);
-    textSize(20);
+    textSize(35);
     text(hp, loc.x, loc.y);
   }
 
@@ -40,20 +40,24 @@ class Hero extends GameObject {
       //ship collisions
       int i = 0;
       while (i < myObjects.size()) {
-        GameObject myObj = myObjects.get(i);
+        GameObject myObj = myObjects.get(i);        
+        if (isCollidingWith(myObj) &&  myObj instanceof TBullet) {
 
-        if (myObj.roomX == hero.roomX && myObj.roomY == hero.roomY) {
-          if (myObj instanceof Enemy || myObj instanceof TBullet) {
-            if ( dist(loc.x, loc.y, myObj.loc.x, myObj.loc.y) < size/2 + myObj.size) {
-              hp= hp - 5;
-              itimer = 0;
-              ht = 100;
-            }
-          }
+          hp= hp - 5;
+          itimer = 0;
+          ht = 100;
+        }
+        if (isCollidingWith(myObj) && myObj instanceof Enemy) {
+          hp= hp - 5;
+          itimer = 0;
+          ht = 100;
         }
         i++;
       }
     }
+
+
+
 
 
 

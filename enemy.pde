@@ -8,7 +8,7 @@ class Enemy extends GameObject {
     roomY = 1;
     size = 50;
   }
-  
+
   Enemy(int x, int y) {
     loc = new PVector(width/2, height/2);
     vel = new PVector(0, 0);
@@ -44,14 +44,9 @@ class Enemy extends GameObject {
     int i = 0;
     while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
-      if (obj instanceof Bullet) {
-        if (obj.roomX == hero.roomX && obj.roomY == hero.roomY) {
-          float d = dist(obj.loc.x, obj.loc.y, loc.x, loc.y);
-          if (d <= size/2 + obj.size/2) {
-            hp = hp - ((Bullet) obj).damage;
-            obj.hp = 0;
-          }
-        }
+      if (obj instanceof Bullet && isCollidingWith(obj)) {
+        hp = hp - ((Bullet) obj).damage;
+        obj.hp = 0;
       }
       i++;
     }

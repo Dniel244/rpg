@@ -27,7 +27,8 @@ int SHOTGUN_THRESHOLD = 50;
 int SHOTGUN_BULLETSPEED = 5;
 
 
-
+//FONT
+PFont Dungeon;
 
 
 
@@ -90,6 +91,7 @@ void setup() {
   start = new Button(width/2, height/2+200, 200, 100, red, green);
   map = loadImage("map.png");
 
+Dungeon = createFont("DUNG.TTF", 50);
   //CREATE OBJECTS
   myObjects = new ArrayList<GameObject>(1000);
   hero = new Hero();

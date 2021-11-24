@@ -16,7 +16,7 @@ class Hero extends GameObject {
     roomy = roomY;
     itimer = 0;
     ithreshold = 50;
-    weapon = new ShotGun();
+    weapon = new AutoPistol();
   }
 
   void show() {
@@ -37,12 +37,11 @@ class Hero extends GameObject {
 
       ht = 200;
 
-      //ship collisions
+
       int i = 0;
       while (i < myObjects.size()) {
         GameObject myObj = myObjects.get(i);        
         if (isCollidingWith(myObj) &&  myObj instanceof TBullet) {
-
           hp= hp - 5;
           itimer = 0;
           ht = 100;
@@ -51,6 +50,14 @@ class Hero extends GameObject {
           hp= hp - 5;
           itimer = 0;
           ht = 100;
+        }
+
+        if (isCollidingWith(myObj) && myObj instanceof DroppedItem) {
+          DroppedItem item = (DroppedItem) myObj;
+          if (item.type == GUN) {
+            weapon = item.w;
+            item.hp = 0;
+          }
         }
         i++;
       }

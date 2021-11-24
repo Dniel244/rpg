@@ -4,6 +4,10 @@ Daniel Altshuler
  Nov 8, 2021
  */
 //enemy: settings
+int AMMO = 0;
+int HEALTH = 1;
+int GUN = 2;
+
 int FOLLOWER_HEALTH = 100;
 int FOLLOWER_SIZE = 50;
 
@@ -77,7 +81,10 @@ int roomx, roomy;
 
 //Images
 PImage map;
+PImage manUp, manDown, manLeft, manRight;
 color northRoom, eastRoom, southRoom, westRoom;
+
+//Load GIFs
 
 
 
@@ -91,7 +98,12 @@ void setup() {
   start = new Button(width/2, height/2+200, 200, 100, red, green);
   map = loadImage("map.png");
 
-Dungeon = createFont("DUNG.TTF", 50);
+  manUp = new AnimatedGif(4, 10, "man/up/sprite_", ".png");
+  manDown = new AnimatedGif(4, 10, "man/down/sprite_", ".png");
+  manLeft = new AnimatedGif(4, 10, "man/left/sprite_", ".png");
+  manRight = new AnimatedGif(4, 10, "man/right/sprite_", ".png");
+
+  Dungeon = createFont("DUNG.TTF", 50);
   //CREATE OBJECTS
   myObjects = new ArrayList<GameObject>(1000);
   hero = new Hero();
@@ -117,21 +129,21 @@ Dungeon = createFont("DUNG.TTF", 50);
   y = 0;
   int j, k;
   while (y < map.height) {
-    color roomColor = map.get(x,y);
+    color roomColor = map.get(x, y);
     if (roomColor == mapBlue) {
       j = int(random(0, 2));
       if (j == 0) {
-      myObjects.add(new Follower(x,y));
+        myObjects.add(new Follower(x, y));
       } else if (j == 1) {
-        myObjects.add(new Lurker(x,y));
+        myObjects.add(new Lurker(x, y));
       }
     }
     if (roomColor == mapPurple) {
-       k = int(random(0, 2));
+      k = int(random(0, 2));
       if (k == 0) {
-      myObjects.add(new Spawner(x,y));
+        myObjects.add(new Spawner(x, y));
       } else if (k == 1) {
-        myObjects.add(new Turret(x,y));
+        myObjects.add(new Turret(x, y));
       }
     }
     x++;

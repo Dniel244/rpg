@@ -47,6 +47,9 @@ class Enemy extends GameObject {
       if (obj instanceof Bullet && isCollidingWith(obj)) {
         hp = hp - ((Bullet) obj).damage;
         obj.hp = 0;
+        if (hp <= 0 ) {
+         myObjects.add (new DroppedItem(loc.x, loc.y, roomX, roomY)); 
+        }
       }
       i++;
     }

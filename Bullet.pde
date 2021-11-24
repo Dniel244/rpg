@@ -24,7 +24,7 @@ class Bullet extends GameObject {
   void act() {
     super.act();
     //deleting bulelts if they dont find their target
-    
+
 
     if (loc.x >= 725) {
       hp--;
@@ -41,12 +41,18 @@ class Bullet extends GameObject {
     if (loc.y <= 75) {
       hp--;
     }
-    
-    
-     if (roomX != hero.roomX || roomY != hero.roomY) {
-       hp--;
-     }
-    
-    
+
+
+    if (roomX != hero.roomX || roomY != hero.roomY) {
+      hp--;
+    }
+
+    if (hp <= 0) {
+      int i = 0;
+      while (i < 20) {
+        myObjects.add(new Bullet_Particles(loc.x, loc.y, 5, 5));
+        i++;
+      }
+    }
   }
 }

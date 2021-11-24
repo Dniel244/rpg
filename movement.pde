@@ -1,5 +1,5 @@
 void keyPressed() {
-  if (key == 'w' || key == 'W') up = true;
+  if (key == 'w' || key == 'W')   up = true;
   if (key == 's' || key == 'S') down = true;
   if (key == 'a' || key == 'A') left = true;
   if (key == 'd' || key == 'D') right = true;

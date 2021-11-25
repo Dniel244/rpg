@@ -1,5 +1,6 @@
 class Hero extends GameObject {
   float speed;
+  AnimatedGif currentAction;
   int itimer, ithreshold;
   int ht;
   Weapon weapon;
@@ -17,15 +18,13 @@ class Hero extends GameObject {
     itimer = 0;
     ithreshold = 50;
     weapon = new AutoPistol();
+    currentAction = manDown;
   }
 
+
+
   void show() {
-    fill(blue, ht);
-    circle(loc.x, loc.y, size);
-    fill(black);
-    textAlign(CENTER, CENTER);
-    textSize(35);
-    text(hp, loc.x, loc.y);
+    currentAction.show(loc.x, loc.y, size/1.5, size);
   }
 
   void act() {
@@ -64,6 +63,13 @@ class Hero extends GameObject {
     }
 
 
+    if (abs(vel.y) > abs(vel.x)) {
+      if (vel.y > 0) currentAction = manDown;
+      else currentAction = manUp;
+    } else {
+      if (vel.x > 0) currentAction = manRight;
+      else currentAction = manLeft;
+    }
 
 
 

@@ -3,7 +3,7 @@ class AnimatedGif {
   int numFrames;
   int currentFrame;
   int x, y, w, h;
-  int rate;
+  int rate = 1;
 
   AnimatedGif(int nf, String pre, String post, int x_, int y_, int w_, int h_) {
     numFrames = nf;
@@ -25,7 +25,7 @@ class AnimatedGif {
     numFrames = nf;
     gif = new PImage[numFrames];
     currentFrame = 0;
-    loadImages(prefix, suffix);
+    //loadImages(prefix, suffix);
     rate = r;
 
 
@@ -36,20 +36,17 @@ class AnimatedGif {
     }
   }
 
-  //void show() {
-  //  imageMode(CENTER);
-  //  image(gif[currentFrame], x, y, w, h);
-  //  currentFrame++;
-  //  if (currentFrame == numFrames) currentFrame = 0;
-  //}
-
   void show() {
-    if (currentFrame >= gif.length) currentFrame = 0;
-    image(gif[currentFrame], width/2, height/2, width, height);
-    if (frameCount % rate == 0) currentFrame++;
+    imageMode(CENTER);
+    image(gif[currentFrame], x, y, w, h);
+    currentFrame++;
+    if (currentFrame == numFrames) currentFrame = 0;
   }
 
+
+
   void show(float x, float y, float w, float h) {
+    imageMode(CENTER);
     if (currentFrame >= gif.length) currentFrame = 0;
     image(gif[currentFrame], x, y, w, h);
     if (frameCount % rate == 0) currentFrame++;

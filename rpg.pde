@@ -43,6 +43,7 @@ boolean mouseReleased, wasPressed;
 
 //class variables
 AnimatedGif myGif;
+AnimatedGif manUp, manDown, manLeft, manRight;
 Button start;
 
 
@@ -81,7 +82,6 @@ int roomx, roomy;
 
 //Images
 PImage map;
-PImage manUp, manDown, manLeft, manRight;
 color northRoom, eastRoom, southRoom, westRoom;
 
 //Load GIFs
@@ -92,6 +92,7 @@ color northRoom, eastRoom, southRoom, westRoom;
 boolean up, down, left, right, spacekey;
 
 void setup() {
+  rectMode(CENTER);
   size(800, 800);
   mode = INTRO;
   myGif = new AnimatedGif(55, "frame_", "_delay-0.06s.gif", width/2, height/2, width, height);

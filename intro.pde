@@ -1,4 +1,5 @@
 void intro() { 
+  rectMode(CENTER);
   myGif.show();
   start.show();
   click();

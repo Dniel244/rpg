@@ -41,6 +41,9 @@ class Enemy extends GameObject {
   void act() {
     super.act();
 
+    int etr, utr;
+    int et = 0;
+    Weapon ut = new AutoPistol();
     int i = 0;
     while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
@@ -48,7 +51,21 @@ class Enemy extends GameObject {
         hp = hp - ((Bullet) obj).damage;
         obj.hp = 0;
         if (hp <= 0 ) {
-         myObjects.add (new DroppedItem(loc.x, loc.y, roomX, roomY)); 
+          etr = int(random(0, 2));
+          if (etr == 0) et = GUN;
+          if (etr == 1) et = HEALTH;
+          
+          utr = int(random(0, 3));
+          if (utr == 0) ut = new ShotGun();
+          if (utr == 1) ut = new AutoPistol();
+          if (utr == 2) ut = new SniperRifle();
+
+
+
+
+          myObjects.add (new DroppedItem(loc.x, loc.y, roomX, roomY, et, ut));
+
+          
         }
       }
       i++;

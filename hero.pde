@@ -25,10 +25,18 @@ class Hero extends GameObject {
 
   void show() {
     currentAction.show(loc.x, loc.y, size/1.5, size);
+    textSize(30);
+    fill(black);
+    textAlign(CENTER, CENTER);
+    text(hp, loc.x, loc.y-50);
   }
 
   void act() {
     super.act();
+
+    if (hp > 100) {
+      hp = 100;
+    }
 
     itimer++;
 
@@ -51,11 +59,29 @@ class Hero extends GameObject {
           ht = 100;
         }
 
+        if (myObj instanceof DroppedItem) {
+          DroppedItem item = (DroppedItem) myObj;
+          if (item.type == GUN) {
+            item.ic = yellow;
+          }
+
+          if (item.type == HEALTH) {
+            item.ic = pink;
+          }
+        }
+
         if (isCollidingWith(myObj) && myObj instanceof DroppedItem) {
           DroppedItem item = (DroppedItem) myObj;
           if (item.type == GUN) {
             weapon = item.w;
             item.hp = 0;
+          } else if (item.type == HEALTH) {
+            if (hp <100) {
+              hp = hp + 10;
+              item.hp = 0;
+            } else {
+              item.hp = 0;
+            }
           }
         }
         i++;

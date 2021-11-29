@@ -21,7 +21,7 @@ int TURRET_HEALTH = 150;
 int TURRET_SIZE = 100;
 
 //weapon: settings
-int SNIPER_RIFLE_THRESHOLD = 100;
+int SNIPER_RIFLE_THRESHOLD = 50;
 int SNIPER_RIFLE_BULLETSPEED = 20;
 
 int AUTO_PISTOL_THRESHOLD = 10;
@@ -66,6 +66,7 @@ color red = #FF0825;
 color green = #12FF37;
 color brown = #907826;
 color yellow = #E9FA0A;
+color pink = #FF5884;
 
 //MINI MAP
 color mapBlue = #117b7a;

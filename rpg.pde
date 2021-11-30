@@ -31,6 +31,8 @@ int SHOTGUN_THRESHOLD = 50;
 int SHOTGUN_BULLETSPEED = 5;
 
 
+
+
 //FONT
 PFont Dungeon;
 
@@ -67,6 +69,7 @@ color green = #12FF37;
 color brown = #907826;
 color yellow = #E9FA0A;
 color pink = #FF5884;
+color white = #FFFFFF;
 
 //MINI MAP
 color mapBlue = #117b7a;

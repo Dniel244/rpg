@@ -1,6 +1,5 @@
 class Bullet extends GameObject {
   color bulletColor;
-  int damage;
   //bullet construcor
   Bullet(PVector vel_, color c, int s) {
     hp = 1;
@@ -25,6 +24,7 @@ class Bullet extends GameObject {
     super.act();
     //deleting bulelts if they dont find their target
 
+  
 
     if (loc.x >= 725) {
       hp--;

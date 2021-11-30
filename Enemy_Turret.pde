@@ -6,6 +6,7 @@ class Turret extends Enemy {
     super(TURRET_HEALTH, TURRET_SIZE, x, y);
     tbTimer = 0;
     tbThreshold = 25;
+    xp = 5;
   }
 
   void show() {

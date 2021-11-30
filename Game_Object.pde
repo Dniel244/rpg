@@ -1,8 +1,11 @@
 class GameObject {
   PVector loc, vel; 
   int size;
-  int hp;
+  int hp, hpMax;
   int roomX, roomY;
+  int damage;
+  int speed;
+  int xp;
   color c;
 
   GameObject() {

@@ -2,6 +2,7 @@ class Lurker extends Enemy {
 
   Lurker(int x, int y) {
     super(LURKER_HEALTH, LURKER_SIZE, x, y);
+    xp = 1;
   }
 
   void show() {

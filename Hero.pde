@@ -28,6 +28,7 @@ class Hero extends GameObject {
     fill(black);
     textAlign(CENTER, CENTER);
     text(hp, loc.x, loc.y-50);
+
   }
 
   void act() {

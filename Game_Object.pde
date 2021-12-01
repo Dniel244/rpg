@@ -53,7 +53,7 @@ class GameObject {
   }//end of iscollidingwith
 
   boolean dead(GameObject myObj) {
-    if (hp == 0) 
+    if (myObj.hp == 0) 
       return true;
     else
       return false;

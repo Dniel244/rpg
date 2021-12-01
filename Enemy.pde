@@ -52,10 +52,11 @@ class Enemy extends GameObject {
         hp = hp - ((Bullet) obj).damage;
         obj.hp = 0;
         if (hp <= 0 ) {
+
           etr = int(random(0, 2));
           if (etr == 0) et = GUN;
           if (etr == 1) et = HEALTH;
-          
+
           utr = int(random(0, 3));
           if (utr == 0) ut = new ShotGun();
           if (utr == 1) ut = new AutoPistol();
@@ -67,6 +68,7 @@ class Enemy extends GameObject {
           myObjects.add (new DroppedItem(loc.x, loc.y, roomX, roomY, et, ut));
 
           hero.xp += xp;
+          myObjects.add(new Message(loc, "+"+xp, hero.roomX, hero.roomY));
         }
       }
       i++;

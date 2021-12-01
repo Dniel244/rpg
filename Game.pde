@@ -1,5 +1,6 @@
 void game() {
 
+  
   if (hero.hp <= 0) {
     mode = GAMEOVER;
   }

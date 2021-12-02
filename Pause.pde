@@ -1,14 +1,34 @@
 void pause() {
+
+
   background(darkdarkGrey);
   fill(white);
-  textSize(50);
-  text("YOU HAVE " + hero.xp + " XP", 300, 100);
-  text("HP: " + hero.hpMax, 297, 200);
-  text("SPEED: " + hero.speed, 320, 300);
-  text("DAMAGE: " + hero.damage, 320, 400);
+  textSize(100);
+  textAlign(CENTER, CENTER);
+  text("YOU HAVE " + hero.xp + " XP", width/2, 100);
+  text("HP: " + hero.hpMax, 357, 200);
+  text("SPEED: " + hero.speed, 380, 300);
+  text("DAMAGE: " + hero.damage, 430, 400);
+  healthUp.show();
+  speedUp.show();
+  damageUp.show();
+  exit.show();
+  click();
+
+  if (hero.xp > 0) {
+    if (healthUp.clicked) {
+      hero.hpMax++;
+      hero.xp--;
+    }
+
+    //if (speedUp.clicked)
+    //if (damageUp.clicked)
+  }
+  if (exit.clicked) mode = GAME;
 }
 
+void Buttons() {
+}
 
 void pauseClicks() {
-  mode = GAME;
 }

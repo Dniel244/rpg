@@ -2,6 +2,7 @@ class Message extends GameObject {
   String msg;
   int msgTimer;
   int msgThreshold;
+  int t = 255;
   Message(PVector loc_, String s, int rx, int ry) {
     loc = loc_;
     roomX = rx;
@@ -15,7 +16,7 @@ class Message extends GameObject {
   void show() {
     textAlign(CENTER, CENTER);
     textSize(50);
-    fill(white);
+    fill(white, t);
     text(msg, loc.x, loc.y);
   }
 
@@ -24,6 +25,7 @@ class Message extends GameObject {
     println(msgTimer);
     if (msgTimer < msgThreshold) {
       loc.y--;
+      t = t - 8;
     } if (msgTimer >= msgThreshold) hp = 0;
    
   }

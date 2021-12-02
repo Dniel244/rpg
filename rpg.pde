@@ -46,7 +46,7 @@ boolean mouseReleased, wasPressed;
 //class variables
 AnimatedGif myGif;
 AnimatedGif manUp, manDown, manLeft, manRight;
-Button start;
+Button start, healthUp, speedUp, damageUp, exit;
 
 
 //mode framework
@@ -100,7 +100,11 @@ void setup() {
   size(800, 800);
   mode = INTRO;
   myGif = new AnimatedGif(55, "frame_", "_delay-0.06s.gif", width/2, height/2, width, height);
-  start = new Button(width/2, height/2+200, 200, 100, red, green);
+  start = new Button(width/2, height/2+200, 200, 100, red, green, 75, " ");
+  healthUp = new Button(100, 200, 50, 50, white, green, 255, "+");
+  speedUp = new Button(100, 300, 50, 50, white, green, 255, "+");
+  damageUp = new Button(100, 400, 50, 50, white, green, 255, "+");
+  exit = new Button(width-50, 50, 50, 50, lightGrey, red, 255, "X");
   map = loadImage("map.png");
 
   manUp = new AnimatedGif(4, 10, "man/up/sprite_", ".png");

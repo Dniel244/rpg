@@ -1,6 +1,6 @@
 void game() {
 
-  
+
   if (hero.hp <= 0) {
     mode = GAMEOVER;
   }
@@ -13,6 +13,7 @@ void game() {
 }
 
 void drawRoom() {
+
   stroke(lightGrey);
   fill(lightGrey);
   rect(width/2, height/2, width, height);
@@ -45,7 +46,11 @@ void drawRoom() {
   if (westRoom != #FFFFFF) {
     quad(5, height/2 - 50, 50, height/2 - 25, 50, height/2 + 25, 5, height/2 + 50);
   }
+
+if (shopShow) shop.show();
+
 }
+
 
 void drawGameObjects() {
   int i = 0;
@@ -98,5 +103,5 @@ void drawMiniMap() {
 }
 
 void gameClicks() {
-  mode = PAUSE;
+  mode = SHOP;
 }

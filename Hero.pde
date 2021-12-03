@@ -18,6 +18,7 @@ class Hero extends GameObject {
     ithreshold = 50;
     weapon = new AutoPistol();
     currentAction = manDown;
+    damage = 5;
   }
 
 
@@ -28,7 +29,6 @@ class Hero extends GameObject {
     fill(black);
     textAlign(CENTER, CENTER);
     text(hp, loc.x, loc.y-50);
-
   }
 
   void act() {
@@ -37,6 +37,7 @@ class Hero extends GameObject {
     if (hp > hpMax) {
       hp = hpMax;
     }
+
 
     itimer++;
 
@@ -76,7 +77,7 @@ class Hero extends GameObject {
             weapon = item.w;
             item.hp = 0;
           } else if (item.type == HEALTH) {
-            if (hp <100) {
+            if (hp < hpMax) {
               hp = hp + 10;
               item.hp = 0;
             } else {
@@ -101,7 +102,6 @@ class Hero extends GameObject {
 
 
 
-
     roomx = roomX;
     roomy = roomY;
     if (up) vel.y = -speed;
@@ -109,7 +109,7 @@ class Hero extends GameObject {
     if (left) vel.x = -speed;
     if (right) vel.x = speed;
 
-    if (vel.mag() > 5) vel.setMag(5);
+  
 
     if (!up && !down) vel.y = 0;
     if (!left && !right) vel.x = 0;

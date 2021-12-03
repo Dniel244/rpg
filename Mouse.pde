@@ -5,7 +5,7 @@ void mouseReleased() {
     gameClicks();
   } else if (mode == GAMEOVER) {
     gameoverClicks();
-  } else if (mode == PAUSE) {
+  } else if (mode == SHOP) {
     pauseClicks();
   }
 }

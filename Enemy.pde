@@ -49,7 +49,7 @@ class Enemy extends GameObject {
     while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
       if (obj instanceof Bullet && isCollidingWith(obj)) {
-        hp = hp - ((Bullet) obj).damage;
+        hp = hp - hero.damage;
         obj.hp = 0;
         if (hp <= 0 ) {
 

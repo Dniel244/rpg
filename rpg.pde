@@ -42,11 +42,13 @@ PFont Dungeon;
 
 //keyboard input
 boolean mouseReleased, wasPressed;
+boolean shopShow;
 
 //class variables
 AnimatedGif myGif;
 AnimatedGif manUp, manDown, manLeft, manRight;
 Button start, healthUp, speedUp, damageUp, exit;
+Shop shop;
 
 
 //mode framework
@@ -54,7 +56,7 @@ int mode;
 final int INTRO = 1;
 final int GAME = 2;
 final int GAMEOVER = 3;
-final int PAUSE = 4;
+final int SHOP = 4;
 
 //COLOR PALLET
 color lightGrey = #898383;
@@ -74,6 +76,7 @@ color white = #FFFFFF;
 //MINI MAP
 color mapBlue = #117b7a;
 color mapPurple = #3f0a61;
+color mapGreen = #1AFF00;
 
 
 //GAME OBJECTS
@@ -100,6 +103,7 @@ void setup() {
   size(800, 800);
   mode = INTRO;
   myGif = new AnimatedGif(55, "frame_", "_delay-0.06s.gif", width/2, height/2, width, height);
+  shop = new Shop();
   start = new Button(width/2, height/2+200, 200, 100, red, green, 75, " ");
   healthUp = new Button(100, 200, 50, 50, white, green, 255, "+");
   speedUp = new Button(100, 300, 50, 50, white, green, 255, "+");
@@ -155,6 +159,17 @@ void setup() {
         myObjects.add(new Turret(x, y));
       }
     }
+    
+    if (roomColor == mapGreen) {
+      shopShow = true;
+    } else if (roomColor != mapGreen) {
+     // shopShow = false;
+    }
+
+    
+    
+   
+
     x++;
     if (x == map.width) {
       x = 0;
@@ -171,7 +186,7 @@ void draw() {
     game();
   } else if (mode == GAMEOVER) {
     gameover();
-  } else if (mode == PAUSE) {
+  } else if (mode == SHOP) {
     pause();
   }
 }

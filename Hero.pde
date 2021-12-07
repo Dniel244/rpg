@@ -50,12 +50,12 @@ class Hero extends GameObject {
       while (i < myObjects.size()) {
         GameObject myObj = myObjects.get(i);        
         if (isCollidingWith(myObj) &&  myObj instanceof TBullet) {
-          hp= hp - 5;
+          hp= hp - 25;
           itimer = 0;
           ht = 100;
         }
         if (isCollidingWith(myObj) && myObj instanceof Enemy) {
-          hp= hp - 5;
+          hp= hp - 10;
           itimer = 0;
           ht = 100;
         }

@@ -7,4 +7,22 @@ void gameover() {
 }
 
 void gameoverClicks() {
+  mode = INTRO;
+  
+  
+  int i = 0;
+  while (i < myObjects.size()) {
+    myObjects.remove(i);
+    i++;
+  }
+  
+  hero.hp = 100;
+  hero.roomX = 1;
+  hero.roomY = 1;
+  hero = new Hero();
+  myObjects.add(hero);
+  hero.hpMax = hero.hp = 100;
+  hero.speed = 3;
+  hero.damage = 5;
+  
 }

@@ -39,16 +39,15 @@ PFont Dungeon;
 
 
 
-
 //keyboard input
 boolean mouseReleased, wasPressed;
-boolean shopShow;
 
 //class variables
 AnimatedGif myGif;
 AnimatedGif manUp, manDown, manLeft, manRight;
 Button start, healthUp, speedUp, damageUp, exit;
 Shop shop;
+Enemy enemy;
 
 
 //mode framework
@@ -159,16 +158,12 @@ void setup() {
         myObjects.add(new Turret(x, y));
       }
     }
-    
-    if (roomColor == mapGreen) {
-      shopShow = true;
-    } else if (roomColor != mapGreen) {
-     // shopShow = false;
-    }
 
-    
-    
    
+
+
+
+
 
     x++;
     if (x == map.width) {

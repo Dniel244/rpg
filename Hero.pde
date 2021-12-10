@@ -1,7 +1,8 @@
+int itimer, ithreshold;
+int ht;
 class Hero extends GameObject {
   AnimatedGif currentAction;
-  int itimer, ithreshold;
-  int ht;
+
   Weapon weapon;
   Hero() {
     loc = new PVector(width/2, height/2);
@@ -55,7 +56,7 @@ class Hero extends GameObject {
           ht = 100;
         }
         if (isCollidingWith(myObj) && myObj instanceof Enemy) {
-          hp= hp - 10;
+          hp = hp - 10;
           itimer = 0;
           ht = 100;
         }
@@ -109,7 +110,7 @@ class Hero extends GameObject {
     if (left) vel.x = -speed;
     if (right) vel.x = speed;
 
-  
+
 
     if (!up && !down) vel.y = 0;
     if (!left && !right) vel.x = 0;
@@ -118,20 +119,39 @@ class Hero extends GameObject {
     if (northRoom != #FFFFFF && loc.y == 75 && loc.x >= width/2-50 && loc.x <= width/2+50) {
       roomY--;
       loc = new PVector(width/2, 725);
+      cleanUp();
     } else if (eastRoom != #FFFFFF && loc.y >= height/2-50 && loc.y <= height/2+50 && loc.x == 725) {
       roomX++;
       loc = new PVector(75, height/2);
+      cleanUp();
     } else if (southRoom != #FFFFFF && loc.y == 725 && loc.x >= width/2-50 && loc.x <= width/2+50) {
       roomY++;
       loc = new PVector(width/2, 75);
+      cleanUp();
     } else if (westRoom != #FFFFFF && loc.y >= height/2-50 && loc.y <= height/2+50 && loc.x == 75) {
       roomX--;
       loc = new PVector(725, height/2);
+      cleanUp();
     }
 
     weapon.update();
     if (spacekey) {
       weapon.shoot();
+    }
+  }
+  
+  void cleanUp() {
+    int i = 0;
+    while(i < myObjects.size()) {
+      GameObject obj = myObjects.get(i);
+      if (obj instanceof Bullet || obj instanceof TBullet || obj instanceof Message) {
+        if (!inRoomWith(obj)) {
+          myObjects.remove(i);
+          i--;
+        }
+      }
+
+      i++;
     }
   }
 }

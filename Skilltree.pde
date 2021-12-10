@@ -1,0 +1,6 @@
+class Skilltree {
+  
+  Skilltree() {
+    
+  }
+}

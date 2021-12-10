@@ -2,6 +2,7 @@ class Follower extends Enemy {
   Follower(int x, int y) {
     super(FOLLOWER_HEALTH, FOLLOWER_SIZE, x, y);
     xp = 1;
+    damage = 5;
   }
 
   void show() {
@@ -21,5 +22,7 @@ class Follower extends Enemy {
 
     vel = new PVector(hero.loc.x - loc.x, hero.loc.y - loc.y);
     vel.setMag(3);
+
+   
   }
 }

@@ -47,8 +47,12 @@ void drawRoom() {
     quad(5, height/2 - 50, 50, height/2 - 25, 50, height/2 + 25, 5, height/2 + 50);
   }
 
-if (shopShow) shop.show();
-
+  color roomColor;
+  roomColor = map.get(hero.roomX, hero.roomY);
+  
+  if (roomColor == mapGreen) {
+    shop.show();
+  }
 }
 
 
@@ -103,5 +107,10 @@ void drawMiniMap() {
 }
 
 void gameClicks() {
-  mode = SHOP;
+  color roomColor;
+  roomColor = map.get(hero.roomX, hero.roomY);
+  
+  if (roomColor == mapGreen) {
+    mode = SHOP;
+  }
 }

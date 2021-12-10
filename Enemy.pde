@@ -1,3 +1,4 @@
+
 class Enemy extends GameObject {
 
   Enemy() {
@@ -57,10 +58,17 @@ class Enemy extends GameObject {
           if (etr == 0) et = GUN;
           if (etr == 1) et = HEALTH;
 
-          utr = int(random(0, 3));
-          if (utr == 0) ut = new ShotGun();
-          if (utr == 1) ut = new AutoPistol();
-          if (utr == 2) ut = new SniperRifle();
+          utr = int(random(0, 2));
+          if (ut == new ShotGun()) {
+            if (utr == 0) ut = new AutoPistol();
+            if (utr == 1) ut = new SniperRifle();
+          } else if (ut == new AutoPistol()) {
+            if (utr == 0) ut = new ShotGun();
+            if (utr == 1) ut = new SniperRifle();
+          } else if (ut == new SniperRifle()) {
+            if (utr == 0) ut = new ShotGun();
+            if (utr == 1) ut = new AutoPistol();
+          }
 
 
 

@@ -22,11 +22,10 @@ class Message extends GameObject {
 
   void act() {
     msgTimer++;
-    println(msgTimer);
     if (msgTimer < msgThreshold) {
       loc.y--;
       t = t - 8;
-    } if (msgTimer >= msgThreshold) hp = 0;
-   
+    } 
+    if (msgTimer >= msgThreshold) hp = 0;
   }
 }

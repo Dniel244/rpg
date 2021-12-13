@@ -32,24 +32,71 @@ void drawRoom() {
   fill(black);
 
 
-  fill(black);
 
+int x = width/2;
+int y = height/2;
   if (northRoom != #FFFFFF) {
+    fill(black);
     quad(width/2 - 50, 5, width/2 - 25, 50, width/2 + 25, 50, width/2 + 50, 5);
+
+    fill(red);
+    ellipse(x-85, y/4-85, 10, 20);
+    fill(yellow);
+    ellipse(x-85, y/4-85, 5, 15);
+    fill(brown);
+    triangle(x-85-7, y/4-85, x-85+7, y/4-85, x-85+7, y/4-85+30);
+    
+    fill(red);
+    ellipse(x+85, y/4-85, 10, 20);
+    fill(yellow);
+    ellipse(x+85, y/4-85, 5, 15);
+    fill(brown);
+    triangle(x+85-7, y/4-85, x+85+7, y/4-85, x+85-7, y/4-85+30);
   }
   if (eastRoom != #FFFFFF) {
+    fill(black);
     quad(width - 5, height/2 - 50, 750, height/2 - 25, 750, height/2 + 25, width - 5, height/2 + 50);
+    
+     fill(red);
+    ellipse(x*2-10, y-85, 10, 20);
+    fill(yellow);
+    ellipse(x*2-10, y-85, 5, 15);
+    fill(brown);
+    triangle(x*2-10, y-85-7, x*2-10, y-85+7, x*2-30, y-85+37);
+    
+    fill(red);
+    ellipse(x*2, y+85, 10, 20);
+    fill(yellow);
+    ellipse(x*2, y+85, 5, 15);
+    fill(brown);
+    triangle(x*2, y+85, x*2, y+85, x*2-30, y+85-7);
   }
   if (southRoom != #FFFFFF) {
+    fill(black);
     quad(width/2 - 50, height - 5, width/2 - 25, 750, width/2 + 25, 750, width/2 + 50, height - 5);
+    
+     fill(red);
+    ellipse(x-85, y*2-45+30, 10, 20);
+    fill(yellow);
+    ellipse(x-85, y*2-45+30, 5, 15);
+    fill(brown);
+    triangle(x-85-7, y*2-45+30, x-85+7, y*2-45+30, x-85+7, y*2-45);
+    
+    fill(red);
+    ellipse(x+85, y*2-45+30, 10, 20);
+    fill(yellow);
+    ellipse(x+85, y*2-45+30, 5, 15);
+    fill(brown);
+    triangle(x+85-7, y*2-45+30, x+85+7, y*2-45+30, x+85-7, y*2-45);
   }
   if (westRoom != #FFFFFF) {
+    fill(black);
     quad(5, height/2 - 50, 50, height/2 - 25, 50, height/2 + 25, 5, height/2 + 50);
   }
 
   color roomColor;
   roomColor = map.get(hero.roomX, hero.roomY);
-  
+
   if (roomColor == mapGreen) {
     shop.show();
   }
@@ -109,7 +156,7 @@ void drawMiniMap() {
 void gameClicks() {
   color roomColor;
   roomColor = map.get(hero.roomX, hero.roomY);
-  
+
   if (roomColor == mapGreen) {
     mode = SHOP;
   }

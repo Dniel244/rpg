@@ -115,11 +115,17 @@ void setup() {
   manLeft = new AnimatedGif(4, 10, "man/left/sprite_", ".png");
   manRight = new AnimatedGif(4, 10, "man/right/sprite_", ".png");
 
+
+
+
+
   Dungeon = createFont("DUNG.TTF", 50);
   //CREATE OBJECTS
   myObjects = new ArrayList<GameObject>(1000);
   hero = new Hero();
   myObjects.add(hero);
+
+
 
 
   //CREATE DARKNESS

@@ -33,8 +33,8 @@ void drawRoom() {
 
 
 
-int x = width/2;
-int y = height/2;
+  int x = width/2;
+  int y = height/2;
   if (northRoom != #FFFFFF) {
     fill(black);
     quad(width/2 - 50, 5, width/2 - 25, 50, width/2 + 25, 50, width/2 + 50, 5);
@@ -45,7 +45,7 @@ int y = height/2;
     ellipse(x-85, y/4-85, 5, 15);
     fill(brown);
     triangle(x-85-7, y/4-85, x-85+7, y/4-85, x-85+7, y/4-85+30);
-    
+
     fill(red);
     ellipse(x+85, y/4-85, 10, 20);
     fill(yellow);
@@ -56,42 +56,57 @@ int y = height/2;
   if (eastRoom != #FFFFFF) {
     fill(black);
     quad(width - 5, height/2 - 50, 750, height/2 - 25, 750, height/2 + 25, width - 5, height/2 + 50);
-    
-     fill(red);
-    ellipse(x*2-10, y-85, 10, 20);
-    fill(yellow);
-    ellipse(x*2-10, y-85, 5, 15);
-    fill(brown);
-    triangle(x*2-10, y-85-7, x*2-10, y-85+7, x*2-30, y-85+37);
-    
+
     fill(red);
-    ellipse(x*2, y+85, 10, 20);
+    ellipse(x*2-15, y-85, 20, 10);
     fill(yellow);
-    ellipse(x*2, y+85, 5, 15);
+    ellipse(x*2-15, y-85, 15, 5);
     fill(brown);
-    triangle(x*2, y+85, x*2, y+85, x*2-30, y+85-7);
+    triangle(x*2-15, y-85-7, x*2-15, y-85+7, x*2-45, y-85+7);
+
+    fill(red);
+    ellipse(x*2-15, y+85, 20, 10);
+    fill(yellow);
+    ellipse(x*2-15, y+85, 15, 5);
+    fill(brown);
+    triangle(x*2-15, y+85-7, x*2-15, y+85+7, x*2-45, y+85-7);
   }
   if (southRoom != #FFFFFF) {
     fill(black);
     quad(width/2 - 50, height - 5, width/2 - 25, 750, width/2 + 25, 750, width/2 + 50, height - 5);
-    
-     fill(red);
+
+    fill(red);
     ellipse(x-85, y*2-45+30, 10, 20);
     fill(yellow);
     ellipse(x-85, y*2-45+30, 5, 15);
     fill(brown);
     triangle(x-85-7, y*2-45+30, x-85+7, y*2-45+30, x-85+7, y*2-45);
-    
+
     fill(red);
     ellipse(x+85, y*2-45+30, 10, 20);
     fill(yellow);
     ellipse(x+85, y*2-45+30, 5, 15);
     fill(brown);
     triangle(x+85-7, y*2-45+30, x+85+7, y*2-45+30, x+85-7, y*2-45);
+    myObjects.add (new Light(x+85, y*2-45+30, hero.roomX, hero.roomY));
   }
   if (westRoom != #FFFFFF) {
     fill(black);
     quad(5, height/2 - 50, 50, height/2 - 25, 50, height/2 + 25, 5, height/2 + 50);
+
+    fill(red);
+    ellipse(x/7-45, y-85, 20, 10);
+    fill(yellow);
+    ellipse(x/7-45, y-85, 15, 5);
+    fill(brown);
+    triangle(x/7-45, y-85-7, x/7-45, y-85+7, x/7-45+35, y-85+7);
+
+    fill(red);
+    ellipse(x/7-45, y+85, 20, 10);
+    fill(yellow);
+    ellipse(x/7-45, y+85, 15, 5);
+    fill(brown);
+    triangle(x/7-45, y+85-7, x/7-45, y+85+7, x/7-45+35, y+85-7);
   }
 
   color roomColor;

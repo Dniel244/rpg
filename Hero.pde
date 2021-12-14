@@ -33,8 +33,7 @@ class Hero extends GameObject {
   }
 
   void act() {
-    super.act();
-
+    super.act();;
     if (hp > hpMax) {
       hp = hpMax;
     }
@@ -139,10 +138,10 @@ class Hero extends GameObject {
       weapon.shoot();
     }
   }
-  
+
   void cleanUp() {
     int i = 0;
-    while(i < myObjects.size()) {
+    while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
       if (obj instanceof Bullet || obj instanceof TBullet || obj instanceof Message) {
         if (!inRoomWith(obj)) {

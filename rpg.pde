@@ -101,7 +101,7 @@ Hero hero;
 int roomx, roomy;
 
 //Images
-PImage map, iBullets, iSkilltree, iDash, iShield, iDmg, iHshield;
+PImage map, iBullets, iSkilltree, iDash, iShield, iDmg;
 color northRoom, eastRoom, southRoom, westRoom;
 
 //Load GIFs

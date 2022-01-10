@@ -14,7 +14,7 @@ class Shield extends GameObject {
 
   void show() {
 
-    image(iHshield, hero.loc.x, hero.loc.y, 100, 100);
+    image(iShield, hero.loc.x, hero.loc.y, 100, 100);
     noFill();
     noStroke();
     rectMode(CENTER);

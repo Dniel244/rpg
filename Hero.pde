@@ -20,12 +20,12 @@ class Hero extends GameObject {
     weapon = new AutoPistol();
     currentAction = manDown;
     damage = 5;
+    skp = 80;
   }
 
 
 
   void show() {
-    println(shieldTimer);
     currentAction.show(loc.x, loc.y, size/1.5, size);
     textSize(30);
     fill(black);
@@ -65,13 +65,21 @@ class Hero extends GameObject {
 
         if (isCollidingWith(myObj) &&  myObj instanceof TBullet) {
           if (sShield == false) {
-            hp= hp - 25;
+            hp = hp - 10;
             itimer = 0;
             ht = 100;
           } else {
-            sDmg = true;
-            itimer = 0;
-            shieldTimer = 0;
+            if (exShield) {
+              itimer = 0;
+              exShield = false;
+              shieldC = 0;
+            }
+
+            if (shieldC >= shieldCThreshold) {
+              sDmg = true;
+              itimer = 0;
+              shieldTimer = 0;
+            }
           }
         }
 

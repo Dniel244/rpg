@@ -10,6 +10,10 @@ void game() {
   if (dashTimer > 500) {
     dashTimer = 500;
   }
+  
+  if (shieldTimer > 300) {
+    shieldTimer = 300;
+  }
 
 
   if (hero.hp <= 0) {
@@ -221,6 +225,8 @@ void drawMiniMap() {
   text(ammo, 60, height-100);
   fill(green);
   text(dashTimer, 740, height-100);
+  fill(blue);
+  text(shieldTimer, 740, 100);
 
   if (sShield) {
     shield.show();

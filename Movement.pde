@@ -1,4 +1,4 @@
-int dashTimer = 0;
+int dashTimer = 500;
 int dashThreshold = 500;
 int dth = 500;
 int shieldTimer = 300;

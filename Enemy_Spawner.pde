@@ -4,6 +4,7 @@ class Spawner extends Enemy {
   Spawner(int x, int y) {
     super(SPAWNER_HEALTH, SPAWNER_SIZE, x, y);
     xp = 2;
+    skp = 1;
   }
 
   void show() {

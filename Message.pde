@@ -1,3 +1,4 @@
+
 class Message extends GameObject {
   String msg;
   int msgTimer;
@@ -12,6 +13,8 @@ class Message extends GameObject {
     msgTimer = 0;
     msgThreshold = 50;
   }
+  
+  
 
   void show() {
     textAlign(CENTER, CENTER);

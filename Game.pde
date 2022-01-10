@@ -1,9 +1,53 @@
 void game() {
 
 
+
+
+
+
+  dashTimer++;
+  shieldTimer++;
+  if (dashTimer > 500) {
+    dashTimer = 500;
+  }
+
+
   if (hero.hp <= 0) {
     mode = GAMEOVER;
   }
+
+  if (ammo < 0) {
+    ammo = 0;
+  }
+
+  if (k) {
+    dth = 300;
+    if (dashTimer > 300) {
+      dashTimer = 300;
+    }
+  }  
+  if (k && m) {
+    dth = 200;
+    if (dashTimer > 200) {
+      dashTimer = 200;
+    }
+  }  
+  if (k && m && n) {
+    dth = 100;
+    if (dashTimer > 100) {
+      dashTimer = 100;
+    }
+  }
+
+
+  color roomColor;
+  roomColor = map.get(hero.roomX, hero.roomY);
+  if (tree == true) {
+    if (roomColor == mapGreen) {
+      mode = SKILLTREE;
+    }
+  }
+
   rectMode(CENTER);
   background(black);
   drawRoom();
@@ -30,6 +74,9 @@ void drawRoom() {
   southRoom = map.get(hero.roomX, hero.roomY+1);
   westRoom = map.get(hero.roomX-1, hero.roomY);
   fill(black);
+
+
+
 
 
 
@@ -114,6 +161,7 @@ void drawRoom() {
 
   if (roomColor == mapGreen) {
     shop.show();
+    skilltree.show();
   }
 }
 
@@ -165,6 +213,22 @@ void drawMiniMap() {
       yM++;
       ;
     }
+  }
+
+  image(iBullets, 130, height-95, 70, 70);
+  textSize(100);
+  fill(red);
+  text(ammo, 60, height-100);
+  fill(green);
+  text(dashTimer, 740, height-100);
+
+  if (sShield) {
+    shield.show();
+    shield.act();
+  }
+
+  if (sDmg) {
+    sShield = false;
   }
 }
 

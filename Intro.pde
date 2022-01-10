@@ -3,7 +3,6 @@ void intro() {
   myGif.show();
   start.show();
   click();
-
   fill(yellow);
   textFont(Dungeon);
   textAlign(CENTER, CENTER);

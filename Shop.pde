@@ -11,7 +11,7 @@ class Shop extends GameObject {
     rectMode(CENTER);
     stroke(black);
     strokeWeight(1);
-    fill(green, t);
+    fill(c, t);
     rect(loc.x, loc.y, 200, 50);
     
   }

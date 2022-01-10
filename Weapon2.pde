@@ -17,17 +17,25 @@ class ShotGun extends Weapon {
     super(SHOTGUN_THRESHOLD, SHOTGUN_BULLETSPEED);
   }
 
+
+  void update() {
+    shotTimer++;
+  }
+
   void shoot() {
-    if (shotTimer >= threshold) {
-      int i = 0;
-      while  (i < 30) {
-        PVector aimVector = new PVector (mouseX-hero.loc.x, mouseY-hero.loc.y) ;
-        aimVector.rotate((random(-PI, PI)));
-        aimVector.setMag(bulletSpeed);
-        myObjects.add(new Bullet(aimVector, red, 10));
-        i++;
+    if (ammo > 0) {
+      if (shotTimer >= threshold) {
+        ammo = ammo - 5;
+        int i = 0;
+        while  (i < 30) {
+          PVector aimVector = new PVector (mouseX-hero.loc.x, mouseY-hero.loc.y) ;
+          aimVector.rotate((random(-PI, PI)));
+          aimVector.setMag(bulletSpeed);
+          myObjects.add(new Bullet(aimVector, red, 10));
+          shotTimer = 0;
+          i++;
+        }
       }
-      shotTimer = 0;
     }
   }
 }

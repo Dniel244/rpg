@@ -5,7 +5,7 @@ class GameObject {
   int roomX, roomY;
   int damage;
   float speed;
-  int xp;
+  int xp, skp;
   color c;
 
   GameObject() {

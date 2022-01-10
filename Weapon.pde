@@ -5,6 +5,7 @@ class Weapon {
   int d;
 
 
+
   Weapon() {
     shotTimer = 0;
     threshold = 30;
@@ -27,11 +28,15 @@ class Weapon {
 
 
   void shoot() {
-    if (shotTimer >= threshold) {
-      PVector aimVector = new PVector(mouseX-hero.loc.x, mouseY-hero.loc.y);
-      aimVector.setMag(bulletSpeed);
-      myObjects.add(new Bullet(aimVector, red, 10));
-      shotTimer = 0;
+
+    if (ammo > 0) {
+      if (shotTimer >= threshold) {
+        ammo--;
+        PVector aimVector = new PVector(mouseX-hero.loc.x, mouseY-hero.loc.y);
+        aimVector.setMag(bulletSpeed);
+        myObjects.add(new Bullet(aimVector, red, 10));
+        shotTimer = 0;
+      }
     }
   }
 }

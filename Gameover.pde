@@ -24,5 +24,6 @@ void gameoverClicks() {
   hero.hpMax = hero.hp = 100;
   hero.speed = 3;
   hero.damage = 5;
+  ammo = 60;
   
 }

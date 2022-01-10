@@ -9,6 +9,7 @@ class Enemy extends GameObject {
     roomY = 1;
     size = 50;
     xp = 1;
+    skp = 1;
   }
 
   Enemy(int x, int y) {
@@ -43,9 +44,11 @@ class Enemy extends GameObject {
   void act() {
     super.act();
 
+
     int etr, utr;
     int et = 0;
     Weapon ut = new AutoPistol();
+
     int i = 0;
     while (i < myObjects.size()) {
       GameObject obj = myObjects.get(i);
@@ -61,17 +64,21 @@ class Enemy extends GameObject {
           utr = int(random(0, 3));
           if (utr == 0) ut = new AutoPistol();
           if (utr == 1) ut = new ShotGun();
-          if (utr == 2) ut = new ShotGun();
-
+          if (utr == 2) ut = new SniperRifle();
 
 
 
           myObjects.add (new DroppedItem(loc.x, loc.y, roomX, roomY, et, ut));
 
           hero.xp += xp;
+          hero.skp += skp;
           myObjects.add(new Message(loc, "+"+xp, hero.roomX, hero.roomY));
+          myObjects.add(new skpMessage(loc, "                 +"+skp, hero.roomX, hero.roomY));
         }
       }
+          
+      
+      
       i++;
     }
   }
